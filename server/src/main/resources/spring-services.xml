@@ -7,13 +7,4 @@
 	<bean id="helloService" class="no.nki.springws.server.service.impl.HelloServiceImpl">
 	</bean>
 
-	<bean id="xmlInInterceptor" class="no.nki.springws.server.interceptor.XmlInInterceptor">
-	</bean>
-
-	<bean id="xmlOutInterceptor" class="no.nki.springws.server.interceptor.XmlOutInterceptor">
-	</bean>
-
-	<bean id="exceptionInterceptor" class="no.nki.springws.server.interceptor.ExceptionInterceptor">
-	</bean>
-
 </beans>

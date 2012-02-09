@@ -1,14 +1,23 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cxf="http://cxf.apache.org/core"
 	xsi:schemaLocation="
-http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
 	<bean id="saajInInterceptor" class="org.apache.cxf.binding.soap.saaj.SAAJInInterceptor" />
+
+	<bean id="xmlInInterceptor" class="no.nki.springws.server.interceptor.XmlInInterceptor">
+	</bean>
+
+	<bean id="xmlOutInterceptor" class="no.nki.springws.server.interceptor.XmlOutInterceptor">
+	</bean>
+
+	<bean id="exceptionInterceptor" class="no.nki.springws.server.interceptor.ExceptionInterceptor">
+	</bean>
 
 	<cxf:bus>
 		<cxf:features>
