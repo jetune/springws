@@ -56,7 +56,7 @@ public class HelloServiceTest extends AbstractWebServiceTest {
 		try {
 			helloService.makeBusinessException();
 		} catch (BusinessException e) {
-			logger.debug("==============>>> Business exception: " + e.getMessage() + " " + e.getCause());
+			logger.debug("==============>>> The business exception: " + e.getMessage());
 			return;
 		}
 		fail("The expected business exception was not thrown.");

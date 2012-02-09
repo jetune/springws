@@ -41,7 +41,7 @@ public class ExceptionInterceptor extends AbstractSoapInterceptor {
 	private void generateSoapFault(Fault fault, Exception e) {
 		int dummy_error_code = 1234;
 		fault.setFaultCode(createQName(dummy_error_code));
-		fault.setMessage("A business exception occured and this is the message");
+		fault.setMessage("A business exception occured and was processed happily by an interceptor.");
 	}
 
 	private static QName createQName(int errorCode) {
