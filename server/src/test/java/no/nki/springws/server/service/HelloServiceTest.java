@@ -1,7 +1,6 @@
 package no.nki.springws.server.service;
 
 import org.junit.Test;
-import org.junit.After;
 import org.junit.Before;
 import static org.junit.Assert.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import no.nki.springws.server.domain.Admin;
 import no.nki.springws.server.domain.impl.AdminImpl;
 import no.nki.springws.server.service.exception.BusinessException;
-import no.nki.springws.server.service.impl.HelloServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
