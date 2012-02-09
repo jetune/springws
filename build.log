@@ -1,0 +1,50 @@
+2012-02-08 17:30:28,127 INFO   [ReflectionServiceFactoryBean] Creating Service {http://service.server.springws.nki.no/}HelloServiceService from class no.nki.springws.server.service.HelloService 
+2012-02-08 17:30:29,367 WARN   [PhaseInterceptorChain] Interceptor for {http://service.server.springws.nki.no/}HelloServiceService#{http://service.server.springws.nki.no/}sendText has thrown exception, unwinding now 
+org.apache.cxf.interceptor.Fault: Could not send Message.
+	at org.apache.cxf.interceptor.MessageSenderInterceptor$MessageSenderEndingInterceptor.handleMessage(MessageSenderInterceptor.java:64)
+	at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:263)
+	at org.apache.cxf.endpoint.ClientImpl.doInvoke(ClientImpl.java:533)
+	at org.apache.cxf.endpoint.ClientImpl.invoke(ClientImpl.java:463)
+	at org.apache.cxf.endpoint.ClientImpl.invoke(ClientImpl.java:366)
+	at org.apache.cxf.endpoint.ClientImpl.invoke(ClientImpl.java:319)
+	at org.apache.cxf.frontend.ClientProxy.invokeSync(ClientProxy.java:88)
+	at org.apache.cxf.jaxws.JaxWsClientProxy.invoke(JaxWsClientProxy.java:134)
+	at $Proxy34.sendText(Unknown Source)
+	at no.nki.springws.client.utils.Client.main(Client.java:20)
+Caused by: java.net.ConnectException: ConnectException invoking http://localhost:8080/springws/Hello: Connection refused
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.mapException(HTTPConduit.java:1431)
+	at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.close(HTTPConduit.java:1416)
+	at org.apache.cxf.transport.AbstractConduit.close(AbstractConduit.java:56)
+	at org.apache.cxf.transport.http.HTTPConduit.close(HTTPConduit.java:649)
+	at org.apache.cxf.interceptor.MessageSenderInterceptor$MessageSenderEndingInterceptor.handleMessage(MessageSenderInterceptor.java:62)
+	... 9 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:351)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:213)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:200)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:395)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:530)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:234)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:307)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:324)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:970)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:911)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:836)
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1014)
+	at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.handleHeadersTrustCaching(HTTPConduit.java:1368)
+	at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.onFirstWrite(HTTPConduit.java:1310)
+	at org.apache.cxf.io.AbstractWrappedOutputStream.write(AbstractWrappedOutputStream.java:42)
+	at org.apache.cxf.io.AbstractThresholdOutputStream.write(AbstractThresholdOutputStream.java:69)
+	at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.close(HTTPConduit.java:1388)
+	... 12 more
+2012-02-08 17:31:11,748 INFO   [ReflectionServiceFactoryBean] Creating Service {http://service.server.springws.nki.no/}HelloServiceService from class no.nki.springws.server.service.HelloService 
+2012-02-08 17:31:24,434 INFO   [ReflectionServiceFactoryBean] Creating Service {http://service.server.springws.nki.no/}HelloServiceService from class no.nki.springws.server.service.HelloService 
+2012-02-09 09:23:57,539 INFO   [ReflectionServiceFactoryBean] Creating Service {http://service.server.springws.nki.no/}HelloServiceService from class no.nki.springws.server.service.HelloService 
