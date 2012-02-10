@@ -39,7 +39,7 @@ public class HelloServiceTest extends AbstractWebServiceTest {
 	}
 
 	@Test
-	public void testSendTextAdmin() {
+	public void testSendTextToAdmin() {
 		String text = "Hello ";
 		assertEquals(text + admin0.getFirstname() + " " + admin0.getLastname(), helloService.sendTextToAdmin(text, admin0));
 	}
