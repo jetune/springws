@@ -5,8 +5,9 @@
   http://www.springframework.org/schema/beans/spring-beans.xsd
   http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
-	<jaxws:endpoint id="helloEndPoint" implementor="#helloService"
+	<jaxws:endpoint id="helloEndPoint" implementor="#helloService" implementorClass="no.nki.springws.server.service.impl.HelloServiceImpl"
 		address="/Hello">
+		
 	</jaxws:endpoint>
 
 </beans>
