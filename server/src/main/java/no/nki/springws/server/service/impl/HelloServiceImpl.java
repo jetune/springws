@@ -39,7 +39,6 @@ public class HelloServiceImpl implements HelloService {
 
 	@Override
     public void makeBusinessException() throws BusinessException {
-		logger.debug("===================>>> Making a business exception.");
     	throw new BusinessException();
     }
     

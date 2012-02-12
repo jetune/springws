@@ -1,41 +1,62 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cxf="http://cxf.apache.org/core"
-	xsi:schemaLocation="
-	http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
-	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cxf="http://cxf.apache.org/core"
+  xsi:schemaLocation="
+  http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
-	<import resource="classpath:META-INF/cxf/cxf.xml" />
-	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
-	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+  <import resource="classpath:META-INF/cxf/cxf.xml" />
+  <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+  <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
-	<bean id="saajInInterceptor" class="org.apache.cxf.binding.soap.saaj.SAAJInInterceptor" />
+  <bean id="saajInInterceptor" class="org.apache.cxf.binding.soap.saaj.SAAJInInterceptor" />
 
-	<bean id="xmlInInterceptor" class="no.nki.springws.server.interceptor.XmlInInterceptor">
-	</bean>
+  <bean id="xmlInInterceptor" class="no.nki.springws.server.interceptor.XmlInInterceptor">
+  </bean>
 
-	<bean id="xmlOutInterceptor" class="no.nki.springws.server.interceptor.XmlOutInterceptor">
-	</bean>
+  <bean id="xmlOutInterceptor" class="no.nki.springws.server.interceptor.XmlOutInterceptor">
+  </bean>
 
-	<bean id="exceptionInterceptor" class="no.nki.springws.server.interceptor.ExceptionInterceptor">
-	</bean>
+  <bean id="exceptionInterceptor" class="no.nki.springws.server.interceptor.ExceptionInterceptor">
+  </bean>
 
-	<cxf:bus>
-		<cxf:features>
-			<cxf:logging />
-		</cxf:features>
+  <bean id="userAccreditation"
+    class="no.nki.springws.server.security.UserAccreditation">
+    <property name="userAccountService" ref="userAccountService" />
+  </bean>
 
-		<cxf:inInterceptors>
-			<ref bean="saajInInterceptor" />
-			<ref bean="xmlInInterceptor" />
-		</cxf:inInterceptors>
-		
-		<cxf:outInterceptors>
-			<ref bean="xmlOutInterceptor" />	
-		</cxf:outInterceptors>
-		
-		<cxf:outFaultInterceptors>
-			<ref bean="exceptionInterceptor" />
-		</cxf:outFaultInterceptors>
-	</cxf:bus>
+  <bean id="wss4jInInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+    <property name="properties">
+      <map>
+        <entry key="action" value="UsernameToken"/>
+        <entry key="passwordType" value="PasswordDigest" />
+        <entry>
+          <key>
+            <value>passwordCallbackRef</value>
+          </key>
+          <ref bean="userAccreditation"/>
+        </entry>
+      </map>
+    </property>
+  </bean>
+
+  <cxf:bus>
+    <cxf:features>
+      <cxf:logging />
+    </cxf:features>
+
+    <cxf:inInterceptors>
+      <ref bean="saajInInterceptor" />
+      <ref bean="xmlInInterceptor" />
+      <ref bean="wss4jInInterceptor" />
+    </cxf:inInterceptors>
+
+    <cxf:outInterceptors>
+      <ref bean="xmlOutInterceptor" />	
+    </cxf:outInterceptors>
+
+    <cxf:outFaultInterceptors>
+      <ref bean="exceptionInterceptor" />
+    </cxf:outFaultInterceptors>
+  </cxf:bus>
 
 </beans>

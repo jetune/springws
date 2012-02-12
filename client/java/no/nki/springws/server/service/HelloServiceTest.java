@@ -39,7 +39,7 @@ public class HelloServiceTest extends AbstractWebServiceTest {
 	}
 
 	@Test
-	public void testSendTextToAdmin() {
+	public void testSendTextAdmin() {
 		String text = "Hello ";
 		assertEquals(text + admin0.getFirstname() + " " + admin0.getLastname(), helloService.sendTextToAdmin(text, admin0));
 	}
@@ -56,7 +56,7 @@ public class HelloServiceTest extends AbstractWebServiceTest {
 		try {
 			helloService.makeBusinessException();
 		} catch (BusinessException e) {
-			logger.debug("==============>>> The business exception: " + e.getMessage());
+			logger.debug("==============>>> Business exception: " + e.getMessage() + " " + e.getCause());
 			return;
 		}
 		fail("The expected business exception was not thrown.");
