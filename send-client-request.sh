@@ -16,5 +16,5 @@ case "$1" in
     ;;
 esac
 
-java -Denv=$1 -cp config:lib/* no.nki.springws.client.utils.Client
+java -Denv=$1 -cp :lib/* no.nki.springws.client.utils.Client
 

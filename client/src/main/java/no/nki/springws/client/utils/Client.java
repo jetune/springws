@@ -14,7 +14,7 @@ public final class Client {
 	private static Logger logger = LoggerFactory.getLogger(Client.class);
 
 	public static void main(String args[]) throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] { "spring-client-services.xml", "spring-client-properties.xml", "user-account-services.xml" });
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] { "spring-client-services.xml", "spring-properties.xml", "user-account-services.xml" });
 		HelloService helloService = (HelloService) context.getBean("helloService");
 		logger.debug(helloService.sendText("A little web service"));
 		Admin admin = new AdminImpl("ste@nki.no", "Stephane", "Eybert", "stephane", "mypass");
