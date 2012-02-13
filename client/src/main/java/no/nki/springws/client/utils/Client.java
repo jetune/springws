@@ -4,17 +4,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import no.nki.springws.server.domain.Admin;
-import no.nki.springws.server.domain.impl.AdminImpl;
-import no.nki.springws.server.service.HelloService;
-import no.nki.springws.server.service.exception.BusinessException;
+import no.nki.springws.common.domain.Admin;
+import no.nki.springws.common.domain.impl.AdminImpl;
+import no.nki.springws.common.service.HelloService;
+import no.nki.springws.common.service.exception.BusinessException;
 
 public final class Client {
 
 	private static Logger logger = LoggerFactory.getLogger(Client.class);
 
 	public static void main(String args[]) throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] { "spring-client-services.xml", "spring-properties.xml", "user-account-services.xml" });
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] { "spring-client-properties.xml", "spring-client.xml", "user-account-client.xml", "user-account-services.xml" });
 		HelloService helloService = (HelloService) context.getBean("helloService");
 		logger.debug(helloService.sendText("A little web service"));
 		Admin admin = new AdminImpl("ste@nki.no", "Stephane", "Eybert", "stephane", "mypass");

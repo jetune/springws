@@ -11,7 +11,7 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:user-account-services.xml; classpath:spring-services.xml; classpath:spring-jaxws-endpoints.xml; classpath:spring-cxf.xml</param-value>
+		<param-value>classpath:user-account-server.xml; classpath:user-account-services.xml; classpath:spring-services.xml; classpath:spring-jaxws-endpoints.xml; classpath:spring-cxf.xml</param-value>
 	</context-param>
 
 	<servlet>

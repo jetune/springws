@@ -19,11 +19,6 @@
   <bean id="exceptionInterceptor" class="no.nki.springws.server.interceptor.ExceptionInterceptor">
   </bean>
 
-  <bean id="userAccreditation"
-    class="no.nki.springws.server.security.UserAccreditation">
-    <property name="userAccountService" ref="userAccountService" />
-  </bean>
-
   <bean id="wss4jInInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
     <property name="properties">
       <map>

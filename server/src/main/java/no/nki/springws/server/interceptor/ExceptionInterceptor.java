@@ -10,7 +10,7 @@ import org.apache.cxf.phase.Phase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import no.nki.springws.server.service.exception.BusinessException;
+import no.nki.springws.common.service.exception.BusinessException;
 
 @NoJSR250Annotations
 public class ExceptionInterceptor extends AbstractSoapInterceptor {

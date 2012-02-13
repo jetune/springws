@@ -6,11 +6,11 @@
   http://cxf.apache.org/jaxws 
   http://cxf.apache.org/schema/jaxws.xsd">
 
-  <bean id="helloService" class="no.nki.springws.server.service.HelloService"
+  <bean id="helloService" class="no.nki.springws.common.service.HelloService"
     factory-bean="helloServiceFactory" factory-method="create" />
 
   <bean id="helloServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
-    <property name="serviceClass" value="no.nki.springws.server.service.HelloService" />
+    <property name="serviceClass" value="no.nki.springws.common.service.HelloService" />
     <property name="address" value="${webservice.url}" />
     <property name="outInterceptors">
       <list>
@@ -34,10 +34,6 @@
         </entry>
       </map>
     </property>
-  </bean>
-
-  <bean id="userAccreditation" class="no.nki.springws.client.security.UserAccreditation">
-    <property name="userAccountService" ref="userAccountService" />
   </bean>
 
 </beans>

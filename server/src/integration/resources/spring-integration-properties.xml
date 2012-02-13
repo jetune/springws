@@ -6,7 +6,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
 http://cxf.apache.org/jaxws 
 http://cxf.apache.org/schema/jaxws.xsd">
 
-	<bean id="clientPropertyConfigurer"
+	<bean id="integrationPropertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		          <property name="locations">
                   <list>

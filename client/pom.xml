@@ -13,7 +13,7 @@
   <dependencies>
     <dependency>
       <groupId>no.nki</groupId>
-      <artifactId>springws-server</artifactId>
+      <artifactId>springws-common</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>jar</type>
     </dependency>
