@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "org/apache/log4j/xml/log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="false">
+
+	<appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<param name="Threshold" value="DEBUG" />
+		<param name="immediateFlush" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p  [%c{1}] %m %n" />
+		</layout>
+	</appender>
+
+	<appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="INFO" />
+		<param name="immediateFlush" value="true" />
+		<param name="File" value="build.log" />
+		<param name="maxFileSize" value="100KB" />
+		<param name="maxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p  [%c{1}] %m %n" />
+		</layout>
+	</appender>
+
+	<appender name="mailAppender" class="org.apache.log4j.net.SMTPAppender">
+		<param name="Threshold" value="INFO" />
+		<param name="immediateFlush" value="true" />
+		<param name="SMTPHost" value="smtp.gmail.com" />
+		<param name="SMTPUsername" value="mittiprovence@gmail.com" />
+		<param name="SMTPPassword" value="provence13" />
+		<param name="From" value="ste@nki.no" />
+		<param name="To" value="ste@nki.no" />
+		<param name="Subject" value="[LOG] Java - NKI Sesam " />
+		<param name="BufferSize" value="512" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="INFO" />
+			<param name="LevelMax" value="FATAL" />
+		</filter>
+	</appender>
+
+	<logger name="org.springframework" additivity="false">
+		<appender-ref ref="consoleAppender" />
+	</logger>
+
+	<logger name="no.nki" additivity="false">
+		<appender-ref ref="consoleAppender" />
+	</logger>
+
+	<logger name="org.apache.cxf">
+        <level value="INFO" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="mailAppender" />
+	</logger>
+
+	<root>
+		<appender-ref ref="fileAppender" />
+		<appender-ref ref="mailAppender" />
+	</root>
+
+</log4j:configuration>

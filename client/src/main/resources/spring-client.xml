@@ -1,0 +1,39 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+  xsi:schemaLocation="
+  http://www.springframework.org/schema/beans 
+  http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+  http://cxf.apache.org/jaxws 
+  http://cxf.apache.org/schema/jaxws.xsd">
+
+  <bean id="helloService" class="no.nki.springws.common.service.HelloService"
+    factory-bean="helloServiceFactory" factory-method="create" />
+
+  <bean id="helloServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+    <property name="serviceClass" value="no.nki.springws.common.service.HelloService" />
+    <property name="address" value="${webservice.url}" />
+    <property name="outInterceptors">
+      <list>
+        <bean class="org.apache.cxf.binding.soap.saaj.SAAJOutInterceptor" />
+        <ref bean="wss4jOutInterceptor" />
+      </list>
+    </property>
+  </bean>
+
+  <bean id="wss4jOutInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+    <property name="properties">
+      <map>
+        <entry key="action" value="UsernameToken"/>
+        <entry key="passwordType" value="PasswordDigest" />
+        <entry key="user" value="${webservice.username}" />
+        <entry>
+          <key>
+            <value>passwordCallbackRef</value>
+          </key>
+          <ref bean="userAccreditation"/>
+        </entry>
+      </map>
+    </property>
+  </bean>
+
+</beans>
