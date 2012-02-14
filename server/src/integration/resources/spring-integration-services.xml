@@ -6,7 +6,7 @@
   http://cxf.apache.org/jaxws 
   http://cxf.apache.org/schema/jaxws.xsd">
 
-	<bean id="helloService" class="no.nki.springws.common.service.HelloService"
+	<bean id="helloIntegrationService" class="no.nki.springws.common.service.HelloService"
 		factory-bean="helloServiceFactory" factory-method="create" />
 
 	<bean id="helloServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">

@@ -17,12 +17,12 @@ public class HelloServiceTest extends AbstractWebServiceTest {
 	private static Logger logger = LoggerFactory.getLogger(HelloServiceTest.class);
 
 	@Autowired
-	private HelloService helloService;
+	private HelloService helloIntegrationService;
 
 	private Admin admin0;
 
-	protected void setAdminService(HelloService adminService) {
-		this.helloService = adminService;
+	protected void setHelloIntegrationService(HelloService helloIntegrationService) {
+		this.helloIntegrationService = helloIntegrationService;
 	}
 
 	public HelloServiceTest() {
@@ -35,27 +35,27 @@ public class HelloServiceTest extends AbstractWebServiceTest {
 	@Test
 	public void testSendText() {
 		String text = "A little web service";
-		assertEquals(text, helloService.sendText(text));
+		assertEquals(text, helloIntegrationService.sendText(text));
 	}
 
 	@Test
 	public void testSendTextToAdmin() {
 		String text = "Hello ";
 		admin0 = new AdminImpl("ste@nki.no", "Stephane", "Eybert", "stephane", "mypass");
-		assertEquals(text + admin0.getFirstname() + " " + admin0.getLastname(), helloService.sendTextToAdmin(text, admin0));
+		assertEquals(text + admin0.getFirstname() + " " + admin0.getLastname(), helloIntegrationService.sendTextToAdmin(text, admin0));
 	}
 
 	@Test
 	public void testgetAdmin() {
 		String email = "mittiprovence@yhoo.se";
-		Admin retrievedAdmin = helloService.getAdmin(email);
+		Admin retrievedAdmin = helloIntegrationService.getAdmin(email);
 		assertEquals(email, retrievedAdmin.getEmail());
 	}
 	
 	@Test
 	public void testMakeBusinessException() {
 		try {
-			helloService.makeBusinessException();
+			helloIntegrationService.makeBusinessException();
 		} catch (BusinessException e) {
 			logger.debug("==============>>> The business exception: " + e.getMessage());
 			return;
