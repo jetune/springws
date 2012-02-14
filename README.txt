@@ -1,11 +1,18 @@
-Build with Maven
-mvn clean install
+Build and deploy with Maven
+build-and-deploy.sh
 
-Deploy
-\cp -f /home/stephane/work/nki/dev/java/projects/springws/server/target/springws-server-1.0-SNAPSHOT.jar lib/;
-\cp -f /home/stephane/work/nki/dev/java/projects/springws/client/target/springws-client-1.0-SNAPSHOT.jar lib/;
-\cp -f /home/stephane/work/nki/dev/java/projects/springws/web/target/springws-web-1.0-SNAPSHOT.war ~/programs/apache-tomcat/webapps/springws.war;
+For the server, store the server configuration files in your home directory under .springws/config/ with the following filenames:
+security.server.properties
 
-Client request
+For the client, store the client configuration files in your home directory under .springws/config/ with the following filenames:
+client.dev.properties
+client.test.properties
+client.prod.properties
+security.client.dev.properties
+
+An example copy of the configuration files is available in the config/ directory.
+
+To send a client request
 send-client-request.sh dev
 send-client-request.sh test
+
