@@ -29,6 +29,14 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>**/integration/**</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.codehaus.sonar</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>2.8</version>
@@ -116,6 +124,11 @@
 				<groupId>org.apache.tomcat</groupId>
 				<artifactId>servlet-api</artifactId>
 				<version>6.0.35</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty</artifactId>
+				<version>7.0.0.pre5</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
