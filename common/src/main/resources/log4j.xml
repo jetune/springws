@@ -6,7 +6,6 @@
 
 	<appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
 		<param name="Threshold" value="DEBUG" />
-		<param name="immediateFlush" value="true" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d %-5p  [%c{1}] %m %n" />
 		</layout>
@@ -14,7 +13,6 @@
 
 	<appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
 		<param name="Threshold" value="INFO" />
-		<param name="immediateFlush" value="true" />
 		<param name="File" value="build.log" />
 		<param name="maxFileSize" value="100KB" />
 		<param name="maxBackupIndex" value="5" />
@@ -25,7 +23,6 @@
 
 	<appender name="mailAppender" class="org.apache.log4j.net.SMTPAppender">
 		<param name="Threshold" value="INFO" />
-		<param name="immediateFlush" value="true" />
 		<param name="SMTPHost" value="smtp.gmail.com" />
 		<param name="SMTPUsername" value="mittiprovence@gmail.com" />
 		<param name="SMTPPassword" value="provence13" />

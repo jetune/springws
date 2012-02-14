@@ -8,8 +8,6 @@
   <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
   <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
-  <bean id="saajInInterceptor" class="org.apache.cxf.binding.soap.saaj.SAAJInInterceptor" />
-
   <bean id="xmlInInterceptor" class="no.nki.springws.server.interceptor.XmlInInterceptor">
   </bean>
 
@@ -40,7 +38,6 @@
     </cxf:features>
 
     <cxf:inInterceptors>
-      <ref bean="saajInInterceptor" />
       <ref bean="xmlInInterceptor" />
       <ref bean="wss4jInInterceptor" />
     </cxf:inInterceptors>

@@ -24,10 +24,9 @@ public final class Client {
 		try {
 			helloService.makeBusinessException();
 		} catch (BusinessException e) {
-			logger.debug("==============>>> Business exception message: " + e.getMessage());
+			logger.debug("The business exception was caught all right with the message: " + e.getMessage());
 			return;
 		}
-
 	}
 
 }

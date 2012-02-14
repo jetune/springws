@@ -10,7 +10,7 @@ http://cxf.apache.org/schema/jaxws.xsd">
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		          <property name="locations">
                   <list>
-                        <value>classpath:config/security.server.properties</value>
+                        <value>file:${user.home}/.springws/config/security.server.properties</value>
                   </list>
             </property>
 	</bean>

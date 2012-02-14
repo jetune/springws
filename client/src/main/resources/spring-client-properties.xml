@@ -10,8 +10,8 @@
     class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
     <property name="locations">
       <list>
-        <value>classpath:config/${env}.properties</value>
-        <value>classpath:config/security.${env}.properties</value>
+        <value>file:${user.home}/.springws/config/client.${env}.properties</value>
+        <value>file:${user.home}/.springws/config/security.client.${env}.properties</value>
       </list>
     </property>
   </bean>
