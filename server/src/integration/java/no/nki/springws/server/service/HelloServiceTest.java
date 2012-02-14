@@ -5,9 +5,10 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import no.nki.springws.server.domain.Admin;
-import no.nki.springws.server.domain.impl.AdminImpl;
-import no.nki.springws.server.service.exception.BusinessException;
+import no.nki.springws.common.service.HelloService;
+import no.nki.springws.common.domain.Admin;
+import no.nki.springws.common.domain.impl.AdminImpl;
+import no.nki.springws.common.service.exception.BusinessException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
