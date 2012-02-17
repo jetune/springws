@@ -14,7 +14,6 @@
     <property name="address" value="${webservice.url}" />
     <property name="outInterceptors">
       <list>
-        <bean class="org.apache.cxf.binding.soap.saaj.SAAJOutInterceptor" />
         <ref bean="wss4jOutInterceptor" />
       </list>
     </property>
