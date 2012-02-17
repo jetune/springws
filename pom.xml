@@ -77,16 +77,6 @@
 			</build>
 		</profile>
 	</profiles>
-	<repositories>
-		<repository>
-			<id>Maven repository</id>
-			<url>http://mvnrepository.com</url>
-		</repository>
-		<repository>
-			<id>Usertype</id>
-			<url>http://repo1.maven.org/maven2/org/jadira</url>
-		</repository>
-	</repositories>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

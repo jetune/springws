@@ -16,3 +16,4 @@ To send a client request
 send-client-request.sh dev
 send-client-request.sh test
 
+If no environment is provided then the dev environment is used.
